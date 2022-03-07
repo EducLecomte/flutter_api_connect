@@ -40,6 +40,7 @@ class _AffichePageState extends State<AffichePage> {
 
   @override
   Widget build(BuildContext context) {
+    // recup l'argument profil
     profil = ModalRoute.of(context)?.settings.arguments as Profil;
 
     return Scaffold(

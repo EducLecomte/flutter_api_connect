@@ -23,6 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<String, dynamic> dataMap = new Map();
   bool recupDataBool = false;
 
+  // renvoie la requete préparé http en mode POST
   Future<http.Response> recupConnect(String login, String mdp) {
     return http.post(
       Uri.parse('https://s3-4400.nuage-peda.fr/forum/public/api/authentication_token'),
@@ -33,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // recupère le resultat d'une requete http et stock le resultat dans dataMap
   Future<void> recupDataJson() async {
     //var reponse = await recupConnect("raymond.paris@free.fr", "raymond");
     var reponse = await recupConnect(email, mdp);
