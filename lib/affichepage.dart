@@ -28,16 +28,6 @@ class _AffichePageState extends State<AffichePage> {
     return contenu;
   }
 
-  Widget attente() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const <Widget>[
-        Text('En attente des données', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        CircularProgressIndicator(),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     // recup l'argument profil
