@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text("Erreur"),
+                            content: Text("Erreur dans la connection à la BDD"),
                           ),
                         );
                       }
