@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_api_connect/profil.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class AffichePage extends StatefulWidget {
   const AffichePage({Key? key, required this.title}) : super(key: key);
@@ -15,15 +11,14 @@ class AffichePage extends StatefulWidget {
 }
 
 class _AffichePageState extends State<AffichePage> {
-  Profil profil = Profil.vierge();
+  Map<String, dynamic> dataMap = new Map();
 
   Widget afficheData() {
     Column contenu = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.empty(growable: true),
     );
-    contenu.children.add(Text("email: " + profil.getEmail().toString()));
-    contenu.children.add(Text("Token: " + profil.getToken().toString()));
+    contenu.children.add(Text("Token: " + dataMap['token'].toString()));
 
     return contenu;
   }
@@ -31,7 +26,7 @@ class _AffichePageState extends State<AffichePage> {
   @override
   Widget build(BuildContext context) {
     // recup l'argument profil
-    profil = ModalRoute.of(context)?.settings.arguments as Profil;
+    dataMap = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
 
     return Scaffold(
       appBar: AppBar(

@@ -15,10 +15,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _formKey = GlobalKey<FormState>();
-  Profil profil = Profil.vierge();
   String email = "";
   String mdp = "";
-  String token = "";
 
   Map<String, dynamic> dataMap = new Map();
   bool recupDataBool = false;
@@ -40,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
     var reponse = await recupConnect(email, mdp);
     if (reponse.statusCode == 200) {
       dataMap = convert.jsonDecode(reponse.body);
-      token = dataMap['token'].toString();
       recupDataBool = true;
     } else {
       print("erreur " + reponse.statusCode.toString());
@@ -93,8 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     if (_formKey.currentState!.validate()) {
                       await recupDataJson();
                       if (recupDataBool) {
-                        profil = new Profil(email, token);
-                        Navigator.pushNamed(context, '/affiche', arguments: profil);
+                        Navigator.pushNamed(context, '/affiche', arguments: dataMap);
                         /* ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(profil.toString())),
                         ); */
