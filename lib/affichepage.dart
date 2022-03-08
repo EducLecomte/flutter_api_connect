@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api_connect/profil.dart';
 
 class AffichePage extends StatefulWidget {
   const AffichePage({Key? key, required this.title}) : super(key: key);
