@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // password
               TextFormField(
                 obscureText: true,
-                decoration: const InputDecoration(border: OutlineInputBorder(), labelText: "Mot de passe", hintText: "Saisir votre mot de passe password"),
+                decoration: const InputDecoration(border: OutlineInputBorder(), labelText: "Mot de passe", hintText: "Saisir votre mot de passe"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Erreur de saisie";
