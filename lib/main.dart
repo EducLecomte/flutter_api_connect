@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // définition des routes de l'application
         routes: <String, WidgetBuilder>{
-          '/accueil': (BuildContext context) => AccueilPage(title: 'Accueil'),
-          '/login': (BuildContext context) => MyHomePage(title: 'Login'),
+          '/accueil': (BuildContext context) => const AccueilPage(title: 'Accueil'),
+          '/login': (BuildContext context) => const MyHomePage(title: 'Login'),
         });
   }
 }

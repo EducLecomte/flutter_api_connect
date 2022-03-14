@@ -24,7 +24,7 @@ class _AccueilPageState extends State<AccueilPage> {
 
   @override
   Widget build(BuildContext context) {
-    // recup l'argument profil
+    // recup l'argument passé dans le context précédent
     dataMap = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
 
     return Scaffold(
@@ -32,8 +32,10 @@ class _AccueilPageState extends State<AccueilPage> {
         title: Text(widget.title),
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.logout),
+              icon: const Icon(Icons.logout),
               onPressed: () {
+                // l'icon permet de fermer le context en cours et tout les précédents (empilé via des push)
+                // et nous ouvre le context correspondant à l'écran de login
                 Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
               }),
         ],

@@ -52,9 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     if (_formKey.currentState!.validate()) {
       await recupDataJson();
+      // si les données ont été récupéré
       if (recupDataBool) {
+        // on navige vers accueil en détruisant le context actuel
         Navigator.popAndPushNamed(context, '/accueil', arguments: dataMap);
       } else {
+        // sinon on affiche l'erreur et remet le booléen _isLoading à faux
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text("Erreur dans la connection à la BDD"),
@@ -65,6 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
         });
       }
     } else {
+      // affiche une erreur concernant la saisie des informations
+      // et remet le booléen _isLoading à faux
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Erreur dans le login/mdp"),
@@ -117,8 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: ElevatedButton(
+                  // selon la valeur de _isLoading, le bouton s'adapte
                   onPressed: _isLoading ? null : startLoading,
-                  child: _isLoading ? CircularProgressIndicator() : Text(txtButton),
+                  child: _isLoading ? const CircularProgressIndicator() : Text(txtButton),
                 ),
               ),
             ],
