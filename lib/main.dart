@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const MyHomePage(title: 'Flutter Demo Connect'),
         debugShowCheckedModeBanner: false,
+        // définition des routes de l'application
         routes: <String, WidgetBuilder>{
           '/accueil': (BuildContext context) => AccueilPage(title: 'Accueil'),
           '/login': (BuildContext context) => MyHomePage(title: 'Login'),

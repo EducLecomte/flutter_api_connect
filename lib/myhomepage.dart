@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // methode qui permet la connection si les champs du formulaire sont valides
   startLoading() async {
     setState(() {
       _isLoading = true;
