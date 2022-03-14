@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'affichepage.dart';
+import 'accueilpage.dart';
 import 'myhomepage.dart';
 
 void main() {
@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
         ),
         home: const MyHomePage(title: 'Flutter Demo Connect'),
         debugShowCheckedModeBanner: false,
-        routes: <String, WidgetBuilder>{'/affiche': (BuildContext context) => AffichePage(title: 'Affichage')});
+        routes: <String, WidgetBuilder>{
+          '/accueil': (BuildContext context) => AccueilPage(title: 'Accueil'),
+          '/login': (BuildContext context) => MyHomePage(title: 'Login'),
+        });
   }
 }
